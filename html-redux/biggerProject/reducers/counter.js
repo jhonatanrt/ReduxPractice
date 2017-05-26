@@ -20,7 +20,7 @@ function counter(currentState, action){ //funcion REDUCER que se ejecuta al ser 
             console.groupEnd('REDUCER')
             return nextState; // Note 2.2
         default:
-        console.log("XDXDDX")
+            console.log("XDXDDX");
             nextState = currentState;
             return nextState;
     }
