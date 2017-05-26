@@ -1,4 +1,5 @@
 function sum(currentState, action){
+    console.log("AQUI ENTRO 2",action.type)
     var DEFAULT_STATE = 3;
      if(currentState === undefined){ // look at Note 1.1
         nextState = DEFAULT_STATE; // Note 1.2
@@ -12,7 +13,7 @@ function sum(currentState, action){
             nextState = parseInt(action.a) + parseInt(action.b);
             return nextState;// Note2.2
         default:
-            nextState = currenState;
+            nextState = currentState;
             return nextState;
     }
 }
