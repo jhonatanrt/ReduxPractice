@@ -1,14 +1,19 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-class Counter extends Component {
+export default class Counter extends Component {
   static propTypes = {
     value: PropTypes.number.isRequired,
     onIncrement: PropTypes.func.isRequired,
     onDecrement: PropTypes.func.isRequired
   }
 
+  constructor(props){
+    super(props);
+  }
+
   incrementIfOdd = () => {
+    this.props.updateDescribe('click increase!!')
     if (this.props.value % 2 !== 0) {
       this.props.onIncrement()
     }
@@ -19,7 +24,7 @@ class Counter extends Component {
   }
 
   render() {
-    const { value, onIncrement, onDecrement } = this.props
+    const { value, onIncrement, onDecrement, onIncrementAsync, loading } = this.props
     return (
       <p>
         Clicked: {value} times
@@ -36,12 +41,12 @@ class Counter extends Component {
           Increment if odd
         </button>
         {' '}
-        <button onClick={this.incrementAsync}>
+        <button onClick={onIncrementAsync}>
           Increment async
         </button>
+        <br/>
+        <span>{loading? 'is loading ...': 'loaded'}</span>
       </p>
     )
   }
 }
-
-export default Counter

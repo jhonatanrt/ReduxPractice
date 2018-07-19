@@ -1,21 +1,18 @@
 
 export default (currentState, action) => {
-  var DEFAULT_STATE = { result: 0, loading: false};
+  var DEFAULT_STATE = { data: [], loading: 'please click random images'};
   var nextState = Object.assign({}, currentState);
   if(currentState === undefined){
     nextState = DEFAULT_STATE;
     return nextState;
   }
   switch (action.type) {
-    case 'INCREMENT':
+    case 'IMAGES':
     // functionWithError();
-      nextState.result = currentState.result + 1;
+      nextState.result = action.data;
       nextState.loading = false;
       return nextState;
-    case 'DECREMENT':
-      nextState.result = currentState.result - 1;
-      return nextState;
-    case 'INCREMENT_LOADING':
+    case 'IMAGES_LOADING':
       nextState.loading = true;
       return nextState;
     default:
